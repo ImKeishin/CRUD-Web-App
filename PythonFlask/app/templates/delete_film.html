@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Șterge Film</title>
+</head>
+<body>
+    <h1>Șterge un film</h1>
+    
+    <!-- Formular pentru a sterge un film -->
+    <form method="POST" action="/delete_film">
+        <label for="nume_film">Nume film:</label>
+        <input type="text" id="nume_film" name="nume_film" required>
+        <button type="submit">Șterge</button>
+    </form>
+
+    <!-- Afisarea mesajului de eroare, daca exista -->
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

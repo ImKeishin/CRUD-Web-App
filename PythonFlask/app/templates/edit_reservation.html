@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editare Rezervare</title>
+</head>
+<body>
+    <h1>Editare Rezervare</h1>
+    <form method="POST" action="/edit_reservation">
+        <label for="nume_film">Nume film:</label>
+        <input type="text" id="nume_film" name="nume_film" required>
+        <button type="submit">Caută rezervare</button>
+    </form>
+    <br>
+    <form action="{{ url_for('home') }}">
+        <button type="submit">Înapoi la pagina principală</button>
+    </form>
+
+    {% if rezervare %}
+        <form method="POST" action="/edit_reservation">
+            <input type="hidden" name="nume_film" value="{{ rezervare[1] }}">
+            <label for="pret_edit">Preț:</label>
+            <input type="number" id="pret_edit" name="pret_edit" value="{{ rezervare[3] }}" required>
+            <label for="data_rezervare_edit">Data rezervării:</label>
+            <input type="datetime-local" id="data_rezervare_edit" name="data_rezervare_edit" value="{{ rezervare[4]|replace(' ', 'T') }}" required>
+            <button type="submit">Actualizează rezervarea</button>
+        </form>
+    {% endif %}
+
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

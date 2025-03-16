@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Editare Film</title>
+</head>
+<body>
+    <h1>Editare Film</h1>
+    <form method="POST" action="/edit_film">
+        <label for="nume_film">Nume film:</label>
+        <input type="text" id="nume_film" name="nume_film" required>
+        <button type="submit">Căutare film</button>
+    </form>
+    <br>
+    <form action="{{ url_for('home') }}">
+        <button type="submit">Întoarce-te la pagina principală</button>
+    </form>
+    
+    {% if film %}
+    <form method="POST" action="/edit_film">
+        <input type="hidden" name="nume_film_original" value="{{ film[1] }}">
+        
+        <label for="nume_film_edit">Nume film (pentru editare):</label>
+        <input type="text" id="nume_film_edit" name="nume_film_edit" value="{{ film[1] }}" required>
+
+        <label for="an_lansare_edit">Anul lansării:</label>
+        <input type="text" id="an_lansare_edit" name="an_lansare_edit" value="{{ film[2] }}" required>
+
+        <button type="submit">Editează filmul</button>
+    </form>
+    {% endif %}
+    
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}    
+</body>
+</html>

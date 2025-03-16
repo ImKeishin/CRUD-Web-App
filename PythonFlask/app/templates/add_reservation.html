@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Adaugă Rezervare</title>
+</head>
+<body>
+    <h1>Adaugă Rezervare</h1>
+    <form method="POST" action="/add_reservation">
+        <label for="idfilm">Film:</label>
+        <select id="idfilm" name="idfilm" required>
+            <option value="" disabled selected>Selectează un film</option>
+            {% for film in filme %}
+                <option value="{{ film[0] }}">{{ film[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="idlocatie">Locație:</label>
+        <select id="idlocatie" name="idlocatie" required>
+            <option value="" disabled selected>Selectează o locație</option>
+            {% for locatie in locatii %}
+                <option value="{{ locatie[0] }}">{{ locatie[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="pret">Preț:</label>
+        <input type="number" id="pret" name="pret" required>
+        <br>
+        <label for="data_rezervare">Data Rezervării:</label>
+        <input type="datetime-local" id="data_rezervare" name="data_rezervare" required>
+        <br>
+        <button type="submit">Adaugă</button>
+    </form>
+    <br>
+    <form action="{{ url_for('home') }}">
+        <button type="submit">Înapoi la pagina principală</button>
+    </form>
+</body>
+</html>

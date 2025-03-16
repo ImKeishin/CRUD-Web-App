@@ -1,0 +1,3 @@
+http://127.0.0.1:5000
+cd C:\Users\stone\Documents\Docs\Projects\SQL\PIBD\PythonFlask
+python -m app.main
