@@ -1,3 +1,9 @@
-http://127.0.0.1:5000
-cd C:\Users\stone\Documents\Docs\Projects\SQL\PIBD\PythonFlask
+You first need to have Python and MySql Workbench and MySQL Community Server installed !
+Open a terminal and type the following two commands:
+
+pip install mysql-connector-python
+pip install flask flask-mysql-connector
+cd path_to_the_cloned_repo\PythonFlask\
 python -m app.main
+
+Then the URL you need to access with your broswer is this: http://127.0.0.1:5000
